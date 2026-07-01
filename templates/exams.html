@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exams</title>
+</head>
+<body>
+
+<h2>Exams List</h2>
+
+<a href="/add_exam">Add Exam</a>
+
+<table border="1" cellpadding="10">
+
+<tr>
+    <th>ID</th>
+    <th>Exam Name</th>
+    <th>Date</th>
+    <th>Class</th>
+    <th>Actions</th>
+</tr>
+
+{% for exam in exams %}
+<tr>
+
+    <td>{{ exam[0] }}</td>
+    <td>{{ exam[1] }}</td>
+    <td>{{ exam[2] }}</td>
+    <td>{{ exam[3] }}</td>
+
+    <td>
+        <a href="/edit_exam/{{ exam[0] }}">
+            Edit
+        </a>
+
+        |
+
+        <a href="/delete_exam/{{ exam[0] }}"
+           onclick="return confirm('Delete Exam?')">
+           Delete
+        </a>
+    </td>
+
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>

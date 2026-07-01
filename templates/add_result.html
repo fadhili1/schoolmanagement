@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Result - ASMS</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f4f4;
+        }
+
+        .container{
+            width:500px;
+            margin:50px auto;
+            background:#fff;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.2);
+        }
+
+        input, select{
+            width:100%;
+            padding:10px;
+            margin-top:5px;
+            margin-bottom:15px;
+        }
+
+        button{
+            background:#2c3e50;
+            color:white;
+            border:none;
+            padding:10px 20px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#34495e;
+        }
+
+        a{
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Add Student Result</h2>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color:red;">
+                    {{ message }}
+                </p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+
+        <!-- SELECT STUDENT -->
+        <label>Select Student</label><br>
+
+        <select name="student_id" required>
+            <option value="">-- Select Student --</option>
+
+            {% for student in students %}
+                <option value="{{ student[0] }}">
+                    {{ student[1] }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <!-- SELECT EXAM -->
+        <label>Select Exam</label><br>
+
+        <select name="exam_id" required>
+            <option value="">-- Select Exam --</option>
+
+            {% for exam in exams %}
+                <option value="{{ exam[0] }}">
+                    {{ exam[1] }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <!-- SUBJECT -->
+        <label>Subject</label><br>
+
+        <input
+            type="text"
+            name="subject"
+            placeholder="Enter Subject"
+            required
+        >
+
+        <!-- MARKS -->
+        <label>Marks</label><br>
+
+        <input
+            type="number"
+            name="marks"
+            min="0"
+            max="100"
+            placeholder="Enter Marks"
+            required
+        >
+
+        <button type="submit">
+            Save Result
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/results">View Results</a>
+
+</div>
+
+</body>
+</html>

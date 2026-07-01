@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teachers</title>
+</head>
+<body>
+
+<h2>Teachers List</h2>
+
+<a href="/add_teacher">Add Teacher</a>
+
+<table border="1" cellpadding="10">
+
+    <tr>
+        <th>ID</th>
+        <th>Full Name</th>
+        <th>Gender</th>
+        <th>Subject</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for teacher in teachers %}
+    <tr>
+
+        <td>{{ teacher[0] }}</td>
+        <td>{{ teacher[1] }}</td>
+        <td>{{ teacher[2] }}</td>
+        <td>{{ teacher[3] }}</td>
+        <td>{{ teacher[4] }}</td>
+        <td>{{ teacher[5] }}</td>
+
+        <td>
+            <a href="/edit_teacher/{{ teacher[0] }}">Edit</a>
+
+            <a href="/delete_teacher/{{ teacher[0] }}"
+               onclick="return confirm('Delete Teacher?')">
+               Delete
+            </a>
+        </td>
+
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>

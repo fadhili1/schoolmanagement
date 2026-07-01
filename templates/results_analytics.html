@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results Analytics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h2>📊 Results Analytics Dashboard</h2>
+
+<canvas id="resultsChart" width="400" height="200"></canvas>
+
+<script>
+const ctx = document.getElementById('resultsChart');
+
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Grade A', 'Grade B', 'Grade C', 'Grade F'],
+        datasets: [{
+            label: 'Number of Students',
+            data: [
+                {{ grade_a }},
+                {{ grade_b }},
+                {{ grade_c }},
+                {{ grade_f }}
+            ],
+            backgroundColor: [
+                'green',
+                'blue',
+                'orange',
+                'red'
+            ]
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+
+<br>
+<a href="/dashboard">⬅ Back to Dashboard</a>
+
+</body>
+</html>

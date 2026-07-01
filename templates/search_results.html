@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+
+<h2>🔍 Search Student Results</h2>
+
+<form method="POST">
+    <input type="text" name="keyword" placeholder="Search student / exam / subject" required>
+    <button type="submit">Search</button>
+</form>
+
+<br>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Student</th>
+        <th>Exam</th>
+        <th>Subject</th>
+        <th>Marks</th>
+        <th>Grade</th>
+    </tr>
+
+    {% for r in results %}
+    <tr>
+        <td>{{ r[1] }}</td>
+        <td>{{ r[2] }}</td>
+        <td>{{ r[3] }}</td>
+        <td>{{ r[4] }}</td>
+        <td>{{ r[5] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/results">⬅ Back to Results</a>
+
+</body>
+</html>

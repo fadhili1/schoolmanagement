@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Teacher</title>
+</head>
+<body>
+
+<h2>Edit Teacher</h2>
+
+<form method="POST">
+
+    <input type="text" name="fullname"
+           value="{{ teacher[1] }}" required><br><br>
+
+    <input type="text" name="gender"
+           value="{{ teacher[2] }}" required><br><br>
+
+    <input type="text" name="subject"
+           value="{{ teacher[3] }}" required><br><br>
+
+    <input type="text" name="phone"
+           value="{{ teacher[4] }}" required><br><br>
+
+    <input type="email" name="email"
+           value="{{ teacher[5] }}" required><br><br>
+
+    <button type="submit">Update Teacher</button>
+
+</form>
+
+<br>
+<a href="/teachers">Back</a>
+
+</body>
+</html>

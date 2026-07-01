@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Exam</title>
+</head>
+<body>
+
+    <h2>Edit Exam</h2>
+
+    <form method="POST">
+
+        <label>Exam Name</label><br>
+        <input type="text"
+               name="exam_name"
+               value="{{ exam[1] }}"
+               required>
+
+        <br><br>
+
+        <label>Exam Date</label><br>
+        <input type="date"
+               name="exam_date"
+               value="{{ exam[2] }}"
+               required>
+
+        <br><br>
+
+        <label>Class</label><br>
+        <input type="text"
+               name="class_name"
+               value="{{ exam[3] }}"
+               required>
+
+        <br><br>
+
+        <button type="submit">
+            Update Exam
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/exams">Back</a>
+
+</body>
+</html>

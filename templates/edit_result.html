@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Result</title>
+</head>
+<body>
+
+<h2>Edit Result</h2>
+
+<form method="POST">
+
+    <label>Student</label><br>
+    <select name="student_id" required>
+        {% for student in students %}
+            <option value="{{ student[0] }}"
+            {% if student[0] == result[1] %}
+                selected
+            {% endif %}>
+                {{ student[1] }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <br><br>
+
+    <label>Exam</label><br>
+    <select name="exam_id" required>
+        {% for exam in exams %}
+            <option value="{{ exam[0] }}"
+            {% if exam[0] == result[2] %}
+                selected
+            {% endif %}>
+                {{ exam[1] }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <br><br>
+
+    <label>Subject</label><br>
+    <input
+        type="text"
+        name="subject"
+        value="{{ result[3] }}"
+        required>
+
+    <br><br>
+
+    <label>Marks</label><br>
+    <input
+        type="number"
+        name="marks"
+        value="{{ result[4] }}"
+        required>
+
+    <br><br>
+
+    <button type="submit">
+        Update Result
+    </button>
+
+</form>
+
+<br>
+
+<a href="/results">Back</a>
+
+</body>
+</html>

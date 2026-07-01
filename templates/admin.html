@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            font-size: 30px;
+            color: #2c3e50;
+        }
+
+        .menu {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .menu a {
+            margin: 10px;
+            padding: 10px 15px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .menu a:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>ADMIN DASHBOARD</h1>
+    <p>Welcome {{ username }}</p>
+</div>
+
+<div class="menu">
+    <a href="/students">Students</a>
+    <a href="/teachers">Teachers</a>
+    <a href="/exams">Exams</a>
+    <a href="/results">Results</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h2>{{ students }}</h2>
+        <p>Students</p>
+    </div>
+
+    <div class="card">
+        <h2>{{ teachers }}</h2>
+        <p>Teachers</p>
+    </div>
+
+    <div class="card">
+        <h2>{{ exams }}</h2>
+        <p>Exams</p>
+    </div>
+
+    <div class="card">
+        <h2>{{ results }}</h2>
+        <p>Results</p>
+    </div>
+
+</div>
+
+</body>
+</html>

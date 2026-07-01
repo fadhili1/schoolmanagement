@@ -1,0 +1,45 @@
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f4f4f4;
+}
+
+header{
+    background:#2c3e50;
+    color:white;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+}
+
+header a{
+    color:black;
+    text-decoration:none;
+}
+
+.hero{
+    text-align:center;
+    margin-top:100px;
+}
+
+.login-box{
+    width:350px;
+    background:yellow;
+    margin:100px auto;
+    padding:30px;
+    border-radius:10px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#3498db;
+    color:green;
+    border:none;
+}
