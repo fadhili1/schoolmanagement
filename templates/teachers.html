@@ -1,16 +1,102 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Teachers</title>
+    <title>Teachers - ASMS</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg,#0d6efd,#6610f2);
+            margin:0;
+            padding:40px;
+        }
+
+        .container{
+            width:95%;
+            margin:auto;
+            background:#fff;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        h2{
+            text-align:center;
+            color:#0d6efd;
+            margin-bottom:20px;
+        }
+
+        .btn{
+            display:inline-block;
+            background:#198754;
+            color:white;
+            padding:10px 18px;
+            text-decoration:none;
+            border-radius:8px;
+            margin-bottom:20px;
+            font-weight:bold;
+        }
+
+        .btn:hover{
+            background:#157347;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th{
+            background:#0d6efd;
+            color:white;
+            padding:12px;
+        }
+
+        td{
+            padding:10px;
+            border:1px solid #ddd;
+            text-align:center;
+        }
+
+        tr:nth-child(even){
+            background:#f8f9fa;
+        }
+
+        tr:hover{
+            background:#e9ecef;
+        }
+
+        .edit{
+            color:#0d6efd;
+            font-weight:bold;
+            text-decoration:none;
+            margin-right:10px;
+        }
+
+        .delete{
+            color:#dc3545;
+            font-weight:bold;
+            text-decoration:none;
+        }
+
+        .edit:hover{
+            color:#6610f2;
+        }
+
+        .delete:hover{
+            color:#b02a37;
+        }
+    </style>
 </head>
 <body>
 
-<h2>Teachers List</h2>
+<div class="container">
 
-<a href="/add_teacher">Add Teacher</a>
+<h2>👨‍🏫 Teachers List</h2>
 
-<table border="1" cellpadding="10">
+<a href="/add_teacher" class="btn">➕ Add Teacher</a>
 
+<table>
     <tr>
         <th>ID</th>
         <th>Full Name</th>
@@ -23,7 +109,6 @@
 
     {% for teacher in teachers %}
     <tr>
-
         <td>{{ teacher[0] }}</td>
         <td>{{ teacher[1] }}</td>
         <td>{{ teacher[2] }}</td>
@@ -32,18 +117,15 @@
         <td>{{ teacher[5] }}</td>
 
         <td>
-            <a href="/edit_teacher/{{ teacher[0] }}">Edit</a>
-
-            <a href="/delete_teacher/{{ teacher[0] }}"
-               onclick="return confirm('Delete Teacher?')">
-               Delete
-            </a>
+            <a class="edit" href="/edit_teacher/{{ teacher[0] }}">✏ Edit</a>
+            <a class="delete" href="/delete_teacher/{{ teacher[0] }}" onclick="return confirm('Delete Teacher?')">🗑 Delete</a>
         </td>
-
     </tr>
     {% endfor %}
 
 </table>
+
+</div>
 
 </body>
 </html>

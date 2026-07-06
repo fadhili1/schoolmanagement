@@ -1,69 +1,123 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Edit Result</title>
+    <title>Edit Result - ASMS</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg,#0d6efd,#6610f2);
+            margin:0;
+            padding:40px;
+        }
+
+        .container{
+            width:500px;
+            margin:50px auto;
+            background:#fff;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        h2{
+            text-align:center;
+            color:#0d6efd;
+            margin-bottom:20px;
+        }
+
+        label{
+            font-weight:bold;
+            color:#333;
+        }
+
+        input, select{
+            width:100%;
+            padding:10px;
+            margin-top:5px;
+            margin-bottom:15px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            box-sizing:border-box;
+            font-size:15px;
+        }
+
+        input:focus, select:focus{
+            outline:none;
+            border-color:#0d6efd;
+            box-shadow:0 0 5px rgba(13,110,253,.3);
+        }
+
+        button{
+            width:100%;
+            background:#198754;
+            color:white;
+            border:none;
+            padding:12px;
+            border-radius:8px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#157347;
+        }
+
+        a{
+            display:block;
+            text-align:center;
+            margin-top:15px;
+            text-decoration:none;
+            color:#0d6efd;
+            font-weight:bold;
+        }
+
+        a:hover{
+            color:#6610f2;
+        }
+    </style>
 </head>
 <body>
 
-<h2>Edit Result</h2>
+<div class="container">
 
-<form method="POST">
+    <h2>✏ Edit Result</h2>
 
-    <label>Student</label><br>
-    <select name="student_id" required>
-        {% for student in students %}
-            <option value="{{ student[0] }}"
-            {% if student[0] == result[1] %}
-                selected
-            {% endif %}>
-                {{ student[1] }}
-            </option>
-        {% endfor %}
-    </select>
+    <form method="POST">
 
-    <br><br>
+        <label>Student</label>
+        <select name="student_id" required>
+            {% for student in students %}
+                <option value="{{ student[0] }}"
+                {% if student[0] == result[1] %}selected{% endif %}>
+                    {{ student[1] }}
+                </option>
+            {% endfor %}
+        </select>
 
-    <label>Exam</label><br>
-    <select name="exam_id" required>
-        {% for exam in exams %}
-            <option value="{{ exam[0] }}"
-            {% if exam[0] == result[2] %}
-                selected
-            {% endif %}>
-                {{ exam[1] }}
-            </option>
-        {% endfor %}
-    </select>
+        <label>Exam</label>
+        <select name="exam_id" required>
+            {% for exam in exams %}
+                <option value="{{ exam[0] }}"
+                {% if exam[0] == result[2] %}selected{% endif %}>
+                    {{ exam[1] }}
+                </option>
+            {% endfor %}
+        </select>
 
-    <br><br>
+        <label>Subject</label>
+        <input type="text" name="subject" value="{{ result[3] }}" required>
 
-    <label>Subject</label><br>
-    <input
-        type="text"
-        name="subject"
-        value="{{ result[3] }}"
-        required>
+        <label>Marks</label>
+        <input type="number" name="marks" value="{{ result[4] }}" required>
 
-    <br><br>
+        <button type="submit">⬆ Update Result</button>
 
-    <label>Marks</label><br>
-    <input
-        type="number"
-        name="marks"
-        value="{{ result[4] }}"
-        required>
+    </form>
 
-    <br><br>
+    <a href="/results">← Back</a>
 
-    <button type="submit">
-        Update Result
-    </button>
-
-</form>
-
-<br>
-
-<a href="/results">Back</a>
+</div>
 
 </body>
 </html>

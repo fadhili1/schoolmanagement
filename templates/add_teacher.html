@@ -1,37 +1,104 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add Teacher</title>
+    <title>Add Teacher - ASMS</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg,#0d6efd,#6610f2);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            margin:0;
+        }
+
+        .container{
+            width:420px;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        h2{
+            text-align:center;
+            color:#0d6efd;
+            margin-bottom:20px;
+        }
+
+        input,select{
+            width:100%;
+            padding:12px;
+            margin-bottom:15px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            box-sizing:border-box;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:#198754;
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#157347;
+        }
+
+        a{
+            display:block;
+            text-align:center;
+            margin-top:15px;
+            color:#0d6efd;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        a:hover{
+            color:#6610f2;
+        }
+    </style>
+
 </head>
 <body>
 
-<h2>Add Teacher</h2>
+<div class="container">
+
+<h2>👨‍🏫 Add Teacher</h2>
 
 <form method="POST">
 
     <input type="text" name="fullname"
-           placeholder="Full Name" required><br><br>
+           placeholder="Full Name" required>
 
     <select name="gender">
         <option value="Male">Male</option>
         <option value="Female">Female</option>
-    </select><br><br>
+    </select>
 
     <input type="text" name="subject"
-           placeholder="Subject" required><br><br>
+           placeholder="Subject" required>
 
     <input type="text" name="phone"
-           placeholder="Phone Number" required><br><br>
+           placeholder="Phone Number" required>
 
     <input type="email" name="email"
-           placeholder="Email" required><br><br>
+           placeholder="Email" required>
 
-    <button type="submit">Save Teacher</button>
+    <button type="submit">💾 Save Teacher</button>
 
 </form>
 
-<br>
-<a href="/teachers">Back</a>
+<a href="/teachers">← Back to Teachers</a>
+
+</div>
 
 </body>
 </html>
